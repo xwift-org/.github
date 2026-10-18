@@ -1,94 +1,102 @@
-<h1 align="center">
+<p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/xwift-logo-dark-md.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/xwift-logo-light-md.svg">
-    <img alt="Xwift" src="assets/xwift-logo-light-md.svg" width="260">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/hero-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/hero-light.svg">
+    <img src="./assets/hero-light.svg" width="100%" alt="Xwift. Write once. Run everything. A cross-platform toolchain, UI framework and system APIs.">
   </picture>
-</h1>
-
-<p align="center">A cross-platform toolchain for the Swift language, built on upstream Swift and LLVM.</p>
+</p>
 
 <p align="center">
-  <a href="https://xwift-web.vercel.app">Site</a> ·
-  <a href="https://xwift-web.vercel.app/docs">Docs</a> ·
-  <a href="https://xwift-web.vercel.app/blog">Blog</a> ·
-  <a href="#repositories">Repositories</a> ·
-  <a href="#targets">Targets</a>
+  <a href="#get-started">Get started</a> &nbsp;·&nbsp;
+  <a href="#projects">Projects</a> &nbsp;·&nbsp;
+  <a href="#community">Community</a> &nbsp;·&nbsp;
+  <a href="#contributing">Contributing</a>
 </p>
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
-    <img alt="Write once. Run everything. Proof of concept: macOS, Linux, Windows and WASI green in CI; Android and iOS on the roadmap." src="assets/hero-light.svg" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/platforms-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/platforms-light.svg">
+    <img src="./assets/platforms-light.svg" width="100%" alt="Targets: macOS, Windows, Linux, Android, iOS, Web.">
   </picture>
 </p>
 
-Write once. Run everything. Today Xwift is a proof of concept: one SwiftPM package, stock Swift 6.4.1, four targets green in CI. Nothing is forked. Nothing is patched. The rest is on the roadmap, and it is labelled that way.
-
-| One package | Four targets | Stock Swift |
-| --- | --- | --- |
-| `XwiftCore` and `xwift-hello`, tested with XCTest and swift-testing. | macOS, Linux, Windows and WebAssembly (WASI), each a CI job on every push to `main`. | Swift 6.4.1 from swift.org and the official Swift SDK for WebAssembly, pinned by version and checksum. |
-
-<p align="center"><img src="assets/divider.svg" width="100%" alt=""></p>
-
-## Targets
+Xwift is a universal cross-platform toolchain, UI framework and system APIs. It is built on its own fork of Swift and LLVM, which the Xwift project owns and modifies. One source tree targets macOS, Windows, Linux, Android, iOS and Web.
 
 <p align="center">
-  <img src="assets/targets.svg" width="100%" alt="Four terminal windows showing the real CI output: Hello from Xwift on macOS-arm64, linux-x86_64, windows-x86_64 and wasi-wasm32.">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/divider-a-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/divider-a-light.svg">
+    <img src="./assets/divider-a-light.svg" width="100%" alt="">
+  </picture>
 </p>
 
-| Target | Status | CI does |
-| --- | --- | --- |
-| macOS · arm64 | ✅ working | build · test · run |
-| Linux · x86_64 | ✅ working | build · test · run |
-| Windows · x86_64 | ✅ working | build · test · run |
-| WebAssembly (WASI) · wasm32 | ✅ working | build · run under wasmtime |
-| Android | 🗺️ roadmap | not in CI yet |
-| iOS | 🗺️ roadmap | not in CI yet |
+## Get started
 
-## Repositories
+The proof of concept is one package. It builds, tests and runs the same way on every target in CI. The repository is private for now.
 
-| | Repository | What |
-| --- | --- | --- |
-| 1 | [`xwift`](https://github.com/xwift-org/xwift) | The proof of concept: SwiftPM package, tests, CI on four targets. |
-| 2 | [`xwift-web`](https://github.com/xwift-org/xwift-web) | The site, docs and blog at [xwift-web.vercel.app](https://xwift-web.vercel.app). |
+```sh
+git clone https://github.com/xwift-org/xwift.git
+cd xwift
+swift build
+swift test
+swift run xwift-hello
+```
 
-Both repositories are private for now. The site is public.
+```swift
+import XwiftCore
 
-## Palette
+print(greeting())
+```
+
+```text
+Hello from Xwift on linux-x86_64 (64-bit)!
+```
+
+## Projects
 
 <p align="center">
-  <img src="assets/palette.svg" width="100%" alt="Xwift palette: Ink #0A0E1F, Ion #1FB6FF, Violet #7B5CFF, Pulse #FF3D8B, Ember #FF7A2F">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/projects-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/projects-light.svg">
+    <img src="./assets/projects-light.svg" width="100%" alt="Projects: xwift, the toolchain; xwift-ui, the UI framework; xwift-system, the system APIs; xwift-pm, the package manager.">
+  </picture>
 </p>
 
-## Questions
-
-<details>
-<summary>Is Xwift a new compiler?</summary>
-
-No. It is built on upstream Swift and LLVM. The proof of concept uses the stock Swift 6.4.1 toolchains, unmodified.
-</details>
-
-<details>
-<summary>Does it run on Android or iOS?</summary>
-
-Not yet. Both are on the roadmap and neither is in CI, so neither is claimed.
-</details>
-
-<details>
-<summary>Is Xwift affiliated with Apple?</summary>
-
-No. Swift and the Swift logo are trademarks of Apple Inc.
-</details>
-
----
+- **xwift**: the compiler and toolchain.
+- **xwift-ui**: the UI framework.
+- **xwift-system**: the system APIs.
+- **xwift-pm**: the package manager.
 
 <p align="center">
-  <sub>
-    Xwift · Teodor Walter Vido · 2026<br>
-    <a href="https://xwift-web.vercel.app">Site</a> ·
-    <a href="https://xwift-web.vercel.app/docs">Docs</a> ·
-    <a href="https://xwift-web.vercel.app/blog">Blog</a>
-  </sub>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/divider-b-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/divider-b-light.svg">
+    <img src="./assets/divider-b-light.svg" width="100%" alt="">
+  </picture>
 </p>
+
+## Community
+
+- Questions and ideas: open an issue in the repository it concerns.
+- Bugs: open an issue in the repository it belongs to, with the target and the toolchain version.
+- Releases and notes: each repository's Releases page.
+
+## Contributing
+
+1. Install the toolchain pinned in `.swift-version`.
+2. `swift build && swift test` must pass locally.
+3. Open a pull request against `main`. CI must be green on every target.
+4. Keep commits focused, with imperative-mood messages.
+
+Licenses are set per repository. The toolchain license is not chosen yet.
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/footer-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/footer-light.svg">
+    <img src="./assets/footer-light.svg" width="100%" alt="Xwift. Write once. Run everything.">
+  </picture>
+</p>
+
+<sub>Xwift is an independent project. It is not affiliated with or endorsed by Apple Inc. Swift is a trademark of Apple Inc.</sub>
